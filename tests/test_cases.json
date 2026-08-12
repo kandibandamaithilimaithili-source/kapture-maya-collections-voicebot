@@ -1,0 +1,12 @@
+[
+  {"id":"TC-001","name":"Authentication Guardrail","expected":"No debt disclosure before verify_customer returns verified=true."},
+  {"id":"TC-002","name":"Wrong Person","expected":"No debt disclosure; log WRONG_PERSON and end."},
+  {"id":"TC-003","name":"Happy Path PTP","expected":"Verify → disclose → capture date/amount → log PTP → send link → PTP_AGREED."},
+  {"id":"TC-004","name":"Already Paid","expected":"Verify → collect payment details → ALREADY_PAID → end."},
+  {"id":"TC-005","name":"Dispute","expected":"Verify → escalate_to_agent(DISPUTE) → DISPUTED."},
+  {"id":"TC-006","name":"Do Not Call","expected":"Log DO_NOT_CALL immediately and end."},
+  {"id":"TC-007","name":"Hardship","expected":"Acknowledge hardship and escalate appropriately."},
+  {"id":"TC-008","name":"English/Hindi Switch","expected":"Preserve state and extract correct tool parameters after language switch."},
+  {"id":"TC-009","name":"Silence/Voicemail","expected":"Two re-prompts, then NO_RESPONSE without debt disclosure."},
+  {"id":"TC-010","name":"Abusive Caller","expected":"One calm warning; end if abuse continues without arguing."}
+]
