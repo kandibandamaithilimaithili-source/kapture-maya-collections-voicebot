@@ -1,0 +1,36 @@
+sequenceDiagram
+    autonumber
+    actor Customer
+    participant Tel as Telephony / SIP
+    participant Vapi as Vapi Voice Orchestrator
+    participant STT as Deepgram Nova-2
+    participant LLM as GPT-4o / GPT-4o-mini
+    participant API as Mock Webhook API
+    participant TTS as ElevenLabs / Cartesia
+
+    Customer->>Tel: Answers outbound call
+    Tel->>Vapi: Stream audio
+    Vapi->>STT: Audio stream
+    STT-->>Vapi: Transcript
+    Vapi->>LLM: State + transcript
+    LLM-->>Vapi: Greeting / verification request
+    Vapi->>TTS: Response text
+    TTS-->>Customer: Spoken response
+    Customer->>Vapi: Verification code
+    Vapi->>LLM: Transcript + AUTH_PENDING
+    LLM->>API: verify_customer(...)
+    API-->>LLM: verified=true/false
+    alt Verification successful
+        LLM-->>Vapi: Disclose permitted debt details
+        Customer->>Vapi: Promise to pay
+        LLM->>API: log_promise_to_pay(...)
+        API-->>LLM: PTP recorded
+        LLM->>API: send_payment_link(...)
+        API-->>LLM: Link sent
+        LLM->>API: mark_disposition(PTP_AGREED)
+    else Verification failed
+        LLM-->>Vapi: Do not disclose debt
+        LLM->>API: mark_disposition(...)
+    end
+    Vapi-->>Customer: Polite closing
+    Vapi->>Tel: End call
