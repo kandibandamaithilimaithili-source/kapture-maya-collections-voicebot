@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maya – Kapture Finance Voice AI</title>
+<style>
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f5f7fb;color:#172033;line-height:1.6}.hero{padding:70px 20px;text-align:center;background:linear-gradient(135deg,#172033,#334b72);color:white}.hero h1{font-size:42px;margin:0 0 10px}.hero p{max-width:760px;margin:auto;font-size:18px}.container{max-width:1050px;margin:35px auto;padding:0 20px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}.card{background:white;border-radius:14px;padding:22px;box-shadow:0 5px 20px rgba(0,0,0,.07)}.card h2{margin-top:0;font-size:21px}.pill{display:inline-block;background:#e9eef8;padding:7px 12px;border-radius:20px;margin:4px;font-size:14px}.flow{font-weight:bold;text-align:center;margin:25px 0;padding:18px;background:white;border-radius:12px}.security{border-left:5px solid #334b72}.footer{text-align:center;padding:30px;color:#667085}.btn{display:inline-block;margin-top:20px;padding:12px 20px;background:white;color:#172033;border-radius:8px;text-decoration:none;font-weight:bold}
+</style>
+</head>
+<body>
+<section class="hero"><h1>Maya</h1><p>Kapture Finance Voice AI Collections Agent</p><p>Outbound voice automation for secure, respectful and state-controlled loan collections.</p><a class="btn" href="https://github.com/kandibandamaithilimaithili-source/kapture-maya-collections-voicebot">View GitHub Repository</a></section>
+<div class="container">
+<div class="grid">
+<div class="card"><h2>Customer Scenario</h2><p><b>Customer:</b> Rahul Sharma</p><p><b>Account:</b> ACC-88392</p><p><b>Product:</b> Personal Loan</p><p><b>Overdue EMI:</b> ₹8,499</p><p><b>Days Past Due:</b> 12</p></div>
+<div class="card"><h2>Voice Stack</h2><span class="pill">Vapi</span><span class="pill">Deepgram Nova-2</span><span class="pill">GPT-4o / GPT-4o-mini</span><span class="pill">ElevenLabs / Cartesia</span></div>
+<div class="card"><h2>Core Tools</h2><p>verify_customer</p><p>get_account_details</p><p>log_promise_to_pay</p><p>send_payment_link</p><p>escalate_to_agent</p><p>mark_disposition</p></div>
+</div>
+<div class="card security" style="margin-top:20px"><h2>Security & Authentication</h2><p>Maya must not disclose overdue amount, loan details, EMI, balance or other debt information until <b>verify_customer</b> returns <b>verified=true</b>. A caller simply saying they are Rahul is not sufficient authentication.</p></div>
+<div class="flow">INIT → AUTH_PENDING → AUTHENTICATED → NEGOTIATION → PTP / ESCALATION → CALL_ENDED</div>
+<div class="grid">
+<div class="card"><h2>Supported Intents</h2><p>Promise to Pay • Already Paid • Hardship • Dispute • Do Not Call • Wrong Person • Callback • No Response • Abusive Caller</p></div>
+<div class="card"><h2>Compliance</h2><p>Respectful communication, DNC handling, no threats or harassment, no invented waivers/discounts, no unauthorized disclosure, and human escalation for cases outside policy.</p></div>
+<div class="card"><h2>Observability</h2><p>State transitions, intents, tool calls, latency, tool failures, final disposition, escalation reason, PTP details and error categories.</p></div>
+</div>
+</div>
+<div class="footer">Kapture Finance – Maya Voice AI Collections Agent | Project Demonstration</div>
+</body>
+</html>
